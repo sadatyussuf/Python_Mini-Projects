@@ -1,4 +1,4 @@
-31. Write a Python program to compute the greatest common divisor (GCD) of two positive integers. https://www.w3resource.com/python-exercises/python-basic-exercise-31.php
+
 
 32. Write a Python program to get the least common multiple (LCM) of two positive integers.  https://www.w3resource.com/python-exercises/python-basic-exercise-32.php
 
