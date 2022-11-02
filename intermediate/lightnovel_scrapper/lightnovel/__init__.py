@@ -1,1 +1,2 @@
 from lightnovel.lightnovel_search import LightNovelScrapper
+from lightnovel import constants
