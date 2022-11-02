@@ -1,0 +1,1 @@
+from lightnovel.lightnovel_search import LightNovelScrapper
