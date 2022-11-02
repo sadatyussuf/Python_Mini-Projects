@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "lightnovel-scrapper"
+version = "0.1.0"
+description = ""
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "lightnovel_scrapper"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+selenium = "^4.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
