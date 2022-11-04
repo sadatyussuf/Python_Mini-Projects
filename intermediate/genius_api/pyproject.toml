@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "genius-api"
+version = "0.1.0"
+description = "Messing with the Genius API"
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "genius_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+lyricsgenius = {git = "https://github.com/johnwmillr/LyricsGenius.git"}
+python-dotenv = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
