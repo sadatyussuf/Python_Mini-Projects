@@ -1,9 +1,4 @@
-from lyricsgenius import Genius
+from genius_api import TheGeniusWithin
 
-
-class TheGeniusWithin(Genius):
-    def __init__(self, client_token):
-        self.client_token = client_token
-
-        super().__init__(access_token=self.client_token)
-        pass
+bot = TheGeniusWithin()
+bot.get_artist('Eminem')
