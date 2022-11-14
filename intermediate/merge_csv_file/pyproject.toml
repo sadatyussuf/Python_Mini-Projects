@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "merge-csv-file"
+version = "0.1.0"
+description = ""
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "merge_csv_file"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
