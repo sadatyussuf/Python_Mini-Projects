@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "merge-pdf-file"
+version = "0.1.0"
+description = ""
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "merge_pdf_file"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pypdf2 = "^2.11.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
