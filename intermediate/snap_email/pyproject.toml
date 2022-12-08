@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "spam-emails"
+version = "0.1.0"
+description = "script for message spam detection"
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "spam_emails"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.2"
+scikit-learn = "^1.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
