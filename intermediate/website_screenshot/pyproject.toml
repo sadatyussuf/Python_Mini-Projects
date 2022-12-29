@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "website-screenshot"
+version = "0.1.0"
+description = ""
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "website_screenshot"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+selenium = "^4.7.2"
+chromedriver-binary = "^109.0.5414.25.0"
+webdriver-manager = "^3.8.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
