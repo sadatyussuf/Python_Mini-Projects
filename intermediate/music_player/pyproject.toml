@@ -9,6 +9,8 @@ packages = [{include = "music_player"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 pygame = "^2.1.2"
+stagger = "^1.0.0"
+pillow = "^9.4.0"
 
 
 [build-system]
