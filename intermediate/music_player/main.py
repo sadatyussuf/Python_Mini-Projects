@@ -71,13 +71,16 @@ label = tk.Label(image_frame, image=img)
 label.pack()
 # ---------------------------------------------------------------------------------
 
+right_frame = tk.Frame(
+    master=window, width=WIDTH / 2, height=HEIGHT - 100, bg="#D90DA2"
+)
+right_frame.pack(side="right")
+
+# ------------------------------------------------------------------------------------
+
+
 # left_frame = tk.Frame(master=window, width=WIDTH / 2, height=HEIGHT - 100, bg="#E372F2")
 # left_frame.pack(side="left")
-
-# right_frame = tk.Frame(
-#     master=window, width=WIDTH / 2, height=HEIGHT - 100, bg="#D90DA2"
-# )
-# right_frame.pack(side="right")
 
 
 # p_frame = tk.Frame(master=window, width=250, height=250, bg="yellow")
