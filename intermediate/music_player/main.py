@@ -1,26 +1,36 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, filedialog
+from tkinter.filedialog import askopenfile
+
 import pygame
 import pathlib
 import stagger
 import io
 from PIL import Image, ImageTk
-from handlers import handle_pause_btn, handle_play_btn
+from handlers import (
+    handle_pause_btn,
+    handle_play_btn,
+    open_file,
+    add_to_playlist,
+    show_current_music,
+)
+
 
 WIDTH = 800
 HEIGHT = 500
 
-# BASE_DIR = pathlib.Path(__file__).parent / "music/foo.wav"
-BASE_DIR = r"D:\Audio\Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3"
+BASE_DIR = pathlib.Path(__file__).parent
+print(BASE_DIR)
+# BASE_DIR = r"D:\Audio\Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3"
 
 
-mp3 = stagger.read_tag(BASE_DIR)
-by_data = mp3[stagger.id3.APIC][0].data
-im = io.BytesIO(by_data)
-imageFile = Image.open(im)
+# mp3 = stagger.read_tag(BASE_DIR)
+# by_data = mp3[stagger.id3.APIC][0].data
+# im = io.BytesIO(by_data)
+# imageFile = Image.open(im)
 
-print(mp3.artist)
-print(mp3.album)
+# print(mp3.artist)
+# print(mp3.album)
 
 
 window = tk.Tk()
@@ -28,7 +38,7 @@ window = tk.Tk()
 window.title("Music Player")
 window.configure(background="#262626")
 window.geometry(f"{WIDTH}x{HEIGHT}")
-# window.resizable(False, False)
+window.resizable(False, False)
 
 
 # ---------------------------------------------------------------------------------
@@ -41,9 +51,12 @@ image_frame.pack(side="left")
 label_frame = tk.Frame(master=top_frame, bg="#59024B")
 label_frame.pack()
 
+a, b, c = show_current_music()
+
 artist_name = tk.Label(
     label_frame,
-    text=f"{mp3.artist}",
+    # text=f"{mp3.artist}",
+    text=a,
     justify=["center"],
     font=("Helvetica", 30),
     bg="#59024B",
@@ -51,7 +64,8 @@ artist_name = tk.Label(
 )
 album_name = tk.Label(
     label_frame,
-    text=f"{mp3.album}",
+    # text=f"{mp3.album}",
+    text=b,
     justify=["center"],
     font=("Helvetica", 15),
     bg="#59024B",
@@ -62,42 +76,125 @@ artist_name.pack(ipady=5, ipadx=(WIDTH - 200) / 2)
 album_name.pack(ipady=5, ipadx=(WIDTH - 200) / 2)
 
 
-# # Resize the image
-new_size = (96, 96)
-image = imageFile.resize(new_size, Image.ANTIALIAS)
-
-img = ImageTk.PhotoImage(image)
-label = tk.Label(image_frame, image=img)
+# img = ImageTk.PhotoImage(image)
+# label = tk.Label(image_frame, image=img)
+label = tk.Label(image_frame, image=c)
 label.pack()
-# ---------------------------------------------------------------------------------
+# * ---------------------------------------------------------------------------------
 
 right_frame = tk.Frame(
     master=window, width=WIDTH / 2, height=HEIGHT - 100, bg="#D90DA2"
 )
 right_frame.pack(side="right")
 
-# ------------------------------------------------------------------------------------
+select_music_btn = tk.Button(
+    master=right_frame,
+    text="Add Music",
+    bg="#59004B",
+    fg="#E372F3",
+    command=lambda: open_file(listbox),
+)
+select_music_btn.pack(side=["top"], padx=10, pady=5, anchor=tk.W)
+
+playlists_frame = tk.Frame(
+    master=right_frame, width=(WIDTH - 100) / 2, height=HEIGHT - 200, bg="green"
+)
+playlists_frame.pack(side=["bottom"], padx=10, pady=5)
+# !------------------------------------------------------
+
+listbox = tk.Listbox(
+    master=playlists_frame,
+    height=22,
+    selectmode=tk.EXTENDED,
+    width=int(((WIDTH / 2) / 7)),
+)
+
+listbox.pack(side="left", fill=tk.BOTH, expand=True)
+
+# *------------------------------------------------------------
+
+left_frame = tk.Frame(master=window, width=WIDTH / 2, height=HEIGHT - 100, bg="#E372F2")
+left_frame.pack(side="left")
+
+first_left_frame = tk.Frame(
+    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="red"
+)
+first_left_frame.pack()
 
 
-# left_frame = tk.Frame(master=window, width=WIDTH / 2, height=HEIGHT - 100, bg="#E372F2")
-# left_frame.pack(side="left")
+def image_pre_process(file_path):
+    new_size = (96, 96)
+    imageFile = Image.open(f"{BASE_DIR}/{file_path}")
+    image = imageFile.resize(new_size, Image.Resampling.LANCZOS)
+
+    return ImageTk.PhotoImage(image)
 
 
-# p_frame = tk.Frame(master=window, width=250, height=250, bg="yellow")
-# p_frame.grid(row=1, column=1)
+img = image_pre_process("images/375.png")
+play_btn = tk.Button(
+    first_left_frame,
+    width=100,
+    height=100,
+    bg="#E372F2",
+    image=img,
+    border=0,
+    command=handle_play_btn,
+)
+play_btn.pack()
 
 
-# playlists_frame = tk.Frame(master=window, width=400, height=300, bg="green")
-# playlists_frame.grid(row=1, column=5, padx=70)
+second_left_frame = tk.Frame(
+    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="yellow"
+)
+second_left_frame.pack()
+img2 = image_pre_process("images/4871417.png")
+next_btn = tk.Button(
+    second_left_frame,
+    width=100,
+    height=100,
+    bg="yellow",
+    image=img2,
+    border=0,
+    # command=handle_next_btn,
+)
+next_btn.pack(side=tk.LEFT, padx=50)
 
-# volumes_frame = tk.Frame(master=window, width=400, height=50, bg="blue")
-# volumes_frame.grid(row=5, column=5)
+img3 = image_pre_process("images/2514.png")
+prev_btn = tk.Button(
+    second_left_frame,
+    width=100,
+    height=100,
+    bg="yellow",
+    image=img3,
+    border=0,
+    # command=handle_prev_btn,
+)
+prev_btn.pack(side=tk.RIGHT, padx=50)
 
 
-# frame_btn = tk.Frame(master=window, width=WIDTH, bg="#000")
+third_left_frame = tk.Frame(
+    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="black"
+)
+third_left_frame.pack()
+img4 = image_pre_process("images/2514.png")
+pause_btn = tk.Button(
+    third_left_frame,
+    width=100,
+    height=100,
+    bg="yellow",
+    image=img4,
+    border=0,
+    # command=handle_pause_btn,
+)
+pause_btn.pack(
+    side=tk.RIGHT,
+)
 
-# play_btn = tk.Button(frame_btn, width=13, text="Play", command=handle_play_btn)
-# play_btn.grid(row=0, column=0)
+fourth_left_frame = tk.Frame(
+    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="green"
+)
+fourth_left_frame.pack()
+
 
 # pause_btn = tk.Button(frame_btn, width=13, text="Pause", command=handle_pause_btn)
 # pause_btn.grid(row=0, column=1)
