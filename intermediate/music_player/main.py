@@ -20,11 +20,16 @@ WIDTH = 800
 HEIGHT = 500
 
 BASE_DIR = pathlib.Path(__file__).parent
-print(BASE_DIR)
-# BASE_DIR = r"D:\Audio\Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3"
+# print(BASE_DIR)
+# # BASE_DIRs = r"D:\Audio\Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3"
+# BASE_DIRs = r"D:\Audio\test.wav"
 
+# try:
+#     mp3 = stagger.read_tag(BASE_DIRs)
+#     print(mp3)
+# except:
+#     pass
 
-# mp3 = stagger.read_tag(BASE_DIR)
 # by_data = mp3[stagger.id3.APIC][0].data
 # im = io.BytesIO(by_data)
 # imageFile = Image.open(im)
@@ -41,6 +46,14 @@ window.geometry(f"{WIDTH}x{HEIGHT}")
 window.resizable(False, False)
 
 
+def image_pre_process(file_path):
+    new_size = (96, 96)
+    imageFile = Image.open(f"{BASE_DIR}/{file_path}")
+    image = imageFile.resize(new_size, Image.Resampling.LANCZOS)
+
+    return ImageTk.PhotoImage(image)
+
+
 # ---------------------------------------------------------------------------------
 top_frame = tk.Frame(window, width=WIDTH, height=100, bg="#59004B")
 top_frame.pack()
@@ -51,12 +64,10 @@ image_frame.pack(side="left")
 label_frame = tk.Frame(master=top_frame, bg="#59024B")
 label_frame.pack()
 
-a, b, c = show_current_music()
 
 artist_name = tk.Label(
     label_frame,
-    # text=f"{mp3.artist}",
-    text=a,
+    text="Music Title Not Found",
     justify=["center"],
     font=("Helvetica", 30),
     bg="#59024B",
@@ -64,8 +75,7 @@ artist_name = tk.Label(
 )
 album_name = tk.Label(
     label_frame,
-    # text=f"{mp3.album}",
-    text=b,
+    text="Album Title Not Found",
     justify=["center"],
     font=("Helvetica", 15),
     bg="#59024B",
@@ -78,8 +88,9 @@ album_name.pack(ipady=5, ipadx=(WIDTH - 200) / 2)
 
 # img = ImageTk.PhotoImage(image)
 # label = tk.Label(image_frame, image=img)
-label = tk.Label(image_frame, image=c)
-label.pack()
+photo = image_pre_process("images/apple-music-logo-circle-png-28.png")
+music_logo = tk.Label(image_frame, image=photo)
+music_logo.pack()
 # * ---------------------------------------------------------------------------------
 
 right_frame = tk.Frame(
@@ -105,7 +116,6 @@ playlists_frame.pack(side=["bottom"], padx=10, pady=5)
 listbox = tk.Listbox(
     master=playlists_frame,
     height=22,
-    selectmode=tk.EXTENDED,
     width=int(((WIDTH / 2) / 7)),
 )
 
@@ -122,14 +132,6 @@ first_left_frame = tk.Frame(
 first_left_frame.pack()
 
 
-def image_pre_process(file_path):
-    new_size = (96, 96)
-    imageFile = Image.open(f"{BASE_DIR}/{file_path}")
-    image = imageFile.resize(new_size, Image.Resampling.LANCZOS)
-
-    return ImageTk.PhotoImage(image)
-
-
 img = image_pre_process("images/375.png")
 play_btn = tk.Button(
     first_left_frame,
@@ -138,81 +140,62 @@ play_btn = tk.Button(
     bg="#E372F2",
     image=img,
     border=0,
-    command=handle_play_btn,
+    command=lambda: handle_play_btn(listbox, artist_name, album_name, music_logo),
 )
 play_btn.pack()
 
 
-second_left_frame = tk.Frame(
-    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="yellow"
-)
-second_left_frame.pack()
-img2 = image_pre_process("images/4871417.png")
-next_btn = tk.Button(
-    second_left_frame,
-    width=100,
-    height=100,
-    bg="yellow",
-    image=img2,
-    border=0,
-    # command=handle_next_btn,
-)
-next_btn.pack(side=tk.LEFT, padx=50)
+# second_left_frame = tk.Frame(
+#     master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="yellow"
+# )
+# second_left_frame.pack()
+# img2 = image_pre_process("images/4871417.png")
+# next_btn = tk.Button(
+#     second_left_frame,
+#     width=100,
+#     height=100,
+#     bg="yellow",
+#     image=img2,
+#     border=0,
+#     # command=handle_next_btn,
+# )
+# next_btn.pack(side=tk.LEFT, padx=50)
 
-img3 = image_pre_process("images/2514.png")
-prev_btn = tk.Button(
-    second_left_frame,
-    width=100,
-    height=100,
-    bg="yellow",
-    image=img3,
-    border=0,
-    # command=handle_prev_btn,
-)
-prev_btn.pack(side=tk.RIGHT, padx=50)
-
-
-third_left_frame = tk.Frame(
-    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="black"
-)
-third_left_frame.pack()
-img4 = image_pre_process("images/2514.png")
-pause_btn = tk.Button(
-    third_left_frame,
-    width=100,
-    height=100,
-    bg="yellow",
-    image=img4,
-    border=0,
-    # command=handle_pause_btn,
-)
-pause_btn.pack(
-    side=tk.RIGHT,
-)
-
-fourth_left_frame = tk.Frame(
-    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="green"
-)
-fourth_left_frame.pack()
+# img3 = image_pre_process("images/2514.png")
+# prev_btn = tk.Button(
+#     second_left_frame,
+#     width=100,
+#     height=100,
+#     bg="yellow",
+#     image=img3,
+#     border=0,
+#     # command=handle_prev_btn,
+# )
+# prev_btn.pack(side=tk.RIGHT, padx=50)
 
 
-# pause_btn = tk.Button(frame_btn, width=13, text="Pause", command=handle_pause_btn)
-# pause_btn.grid(row=0, column=1)
+# third_left_frame = tk.Frame(
+#     master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="black"
+# )
+# third_left_frame.pack()
+# img4 = image_pre_process("images/2514.png")
+# pause_btn = tk.Button(
+#     third_left_frame,
+#     width=100,
+#     height=100,
+#     bg="yellow",
+#     image=img4,
+#     border=0,
+#     # command=handle_pause_btn,
+# )
+# pause_btn.pack(
+#     side=tk.RIGHT,
+# )
 
-# stop_btn = tk.Button(frame_btn, width=13, text="Stop", command=handle_pause_btn)
-# stop_btn.grid(row=0, column=2)
-
-# resume_btn = tk.Button(frame_btn, width=13, text="Resume", command=handle_pause_btn)
-# resume_btn.grid(row=0, column=3)
-
-# prev_btn = tk.Button(frame_btn, width=13, text="Prev", command=handle_pause_btn)
-# prev_btn.grid(row=0, column=4)
-
-# next_btn = tk.Button(frame_btn, width=13, text="Next", command=handle_pause_btn)
-# next_btn.grid(row=0, column=5)
-
-
-# frame_btn.pack(fill=tk.BOTH, side=tk.BOTTOM)
+# fourth_left_frame = tk.Frame(
+#     master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="green"
+# )
+# fourth_left_frame.pack()
 
 
 window.mainloop()
