@@ -13,6 +13,8 @@ from handlers import (
     open_file,
     add_to_playlist,
     show_current_music,
+    handle_next_btn,
+    handle_prev_btn,
 )
 
 
@@ -20,22 +22,6 @@ WIDTH = 800
 HEIGHT = 500
 
 BASE_DIR = pathlib.Path(__file__).parent
-# print(BASE_DIR)
-# # BASE_DIRs = r"D:\Audio\Loyalty_Freak_Music_-_04_-_Cant_Stop_My_Feet_.mp3"
-# BASE_DIRs = r"D:\Audio\test.wav"
-
-# try:
-#     mp3 = stagger.read_tag(BASE_DIRs)
-#     print(mp3)
-# except:
-#     pass
-
-# by_data = mp3[stagger.id3.APIC][0].data
-# im = io.BytesIO(by_data)
-# imageFile = Image.open(im)
-
-# print(mp3.artist)
-# print(mp3.album)
 
 
 window = tk.Tk()
@@ -145,57 +131,53 @@ play_btn = tk.Button(
 play_btn.pack()
 
 
-# second_left_frame = tk.Frame(
-#     master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="yellow"
-# )
-# second_left_frame.pack()
-# img2 = image_pre_process("images/4871417.png")
-# next_btn = tk.Button(
-#     second_left_frame,
-#     width=100,
-#     height=100,
-#     bg="yellow",
-#     image=img2,
-#     border=0,
-#     # command=handle_next_btn,
-# )
-# next_btn.pack(side=tk.LEFT, padx=50)
+second_left_frame = tk.Frame(
+    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="yellow"
+)
+second_left_frame.pack()
+img2 = image_pre_process("images/4871417.png")
+next_btn = tk.Button(
+    second_left_frame,
+    width=100,
+    height=100,
+    bg="yellow",
+    image=img2,
+    border=0,
+    command=lambda: handle_next_btn(listbox, artist_name, album_name, music_logo),
+)
+next_btn.pack(side=tk.LEFT, padx=50)
 
-# img3 = image_pre_process("images/2514.png")
-# prev_btn = tk.Button(
-#     second_left_frame,
-#     width=100,
-#     height=100,
-#     bg="yellow",
-#     image=img3,
-#     border=0,
-#     # command=handle_prev_btn,
-# )
-# prev_btn.pack(side=tk.RIGHT, padx=50)
+img3 = image_pre_process("images/2514.png")
+prev_btn = tk.Button(
+    second_left_frame,
+    width=100,
+    height=100,
+    bg="yellow",
+    image=img3,
+    border=0,
+    command=lambda: handle_prev_btn(listbox, artist_name, album_name, music_logo),
+)
+prev_btn.pack(side=tk.RIGHT, padx=50)
 
 
-# third_left_frame = tk.Frame(
-#     master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="black"
-# )
-# third_left_frame.pack()
-# img4 = image_pre_process("images/2514.png")
-# pause_btn = tk.Button(
-#     third_left_frame,
-#     width=100,
-#     height=100,
-#     bg="yellow",
-#     image=img4,
-#     border=0,
-#     # command=handle_pause_btn,
-# )
-# pause_btn.pack(
-#     side=tk.RIGHT,
-# )
+third_left_frame = tk.Frame(
+    master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="black"
+)
+third_left_frame.pack()
 
-# fourth_left_frame = tk.Frame(
-#     master=left_frame, width=WIDTH / 2, height=(HEIGHT - 100) / 4, bg="green"
-# )
-# fourth_left_frame.pack()
+img4 = image_pre_process("images/2514.png")
+pause_btn = tk.Button(
+    third_left_frame,
+    width=100,
+    height=100,
+    bg="yellow",
+    image=img4,
+    border=0,
+    command=handle_pause_btn,
+)
+pause_btn.pack(
+    side=tk.RIGHT,
+)
 
 
 window.mainloop()
