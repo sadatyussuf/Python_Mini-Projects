@@ -44,7 +44,7 @@ def get_music_detail(music_path: str = None):
             by_data = mp3[stagger.id3.APIC][0].data
             im = io.BytesIO(by_data)
 
-            imageFile = Image.open(im)
+            # imageFile = Image.open(im)
 
             music_img = image_pre_process(absolute_file_path=im)
             music_title = mp3.artist
@@ -87,45 +87,89 @@ def handle_play_btn(
     music_logo: tk.Frame,
 ):
     # st = listbox.get(tk.ANCHOR)
+    global PAUSE
+    PAUSE = False
     # all_list = listbox.get(0, tk.END)
     cur_index = listbox.curselection()[0]
-    all_list = list(listbox.get(0, tk.END))
-    # selected = listbox.select_set(cur_index, listbox.size())
-    current_list = []
-    # print(all_list)
+    # all_list = list(listbox.get(0, tk.END))
+
     if listbox.size():
-        # for i in listbox.curselection():
-        for i in all_list:
-            # while True:
-            clock.tick(100)
-            if cur_index == listbox.size():
-                break
 
-            cur_song = listbox.get(cur_index)
-            if not pygame.mixer.music.get_busy():
-                if not current_list:
-                    current_list = all_list[:]
-                    #     cur_song = current_list.pop(0)
-                    cur_index += 1
-                    cur_song = listbox.get(cur_index)
+        cur_song = listbox.get(cur_index)
 
-            # st = listbox.get(cur_index)
+        music_title, music_album, music_img = get_music_detail(cur_song)
+        artist_name.config(text=music_title)
+        album_name.config(text=music_album)
 
-            music_title, music_album, music_img = get_music_detail(cur_song)
-            artist_name.config(text=music_title)
-            album_name.config(text=music_album)
+        music_logo.configure(image=music_img)
+        music_img.image = music_img
 
-            music_logo.configure(image=music_img)
-            music_img.image = music_img
+        pygame.mixer.music.load(cur_song)
+        pygame.mixer.music.play()
 
-            pygame.mixer.music.load(cur_song)
-            pygame.mixer.music.play()
-
-        cur_index += 1
+        if PAUSE:
+            pygame.mixer.music.unpause()
 
 
 #
 
 
 def handle_pause_btn():
+    global PAUSE
+
+    pygame.mixer.music.pause()
+    PAUSE = True
+
     print("Clicked Pause")
+
+
+def handle_next_btn(
+    listbox: tk.Listbox,
+    artist_name: tk.Frame,
+    album_name: tk.Frame,
+    music_logo: tk.Frame,
+):
+    try:
+        cur_index = listbox.curselection()[0]
+        listbox.select_clear(0, tk.END)
+        listbox.select_set(cur_index + 1)
+
+        cur_song = listbox.get(cur_index + 1)
+
+        music_title, music_album, music_img = get_music_detail(cur_song)
+        artist_name.config(text=music_title)
+        album_name.config(text=music_album)
+
+        music_logo.configure(image=music_img)
+        music_img.image = music_img
+
+        pygame.mixer.music.load(cur_song)
+        pygame.mixer.music.play()
+    except Exception:
+        pass
+
+
+def handle_prev_btn(
+    listbox: tk.Listbox,
+    artist_name: tk.Frame,
+    album_name: tk.Frame,
+    music_logo: tk.Frame,
+):
+    try:
+        cur_index = listbox.curselection()[0]
+        clear_index = listbox.select_clear(0, tk.END)
+        listbox.select_set(cur_index - 1)
+
+        cur_song = listbox.get(cur_index - 1)
+
+        music_title, music_album, music_img = get_music_detail(cur_song)
+        artist_name.config(text=music_title)
+        album_name.config(text=music_album)
+
+        music_logo.configure(image=music_img)
+        music_img.image = music_img
+
+        pygame.mixer.music.load(cur_song)
+        pygame.mixer.music.play()
+    except Exception:
+        pass
