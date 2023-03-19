@@ -1,0 +1,169 @@
+{
+  "author": null,
+  "content": "This technical guide details how you can create your own aerial imagery (aka satellite view/bird mode/orthorectified imagery) and 3D models of streets with the built in iPhone LiDAR sensor (iPhone Pr\u2026 [+14263 chars]",
+  "description": "This technical guide details how you can create your own aerial imagery and 3D models of streets with the built in iPhone LiDAR sensor and open source tools in the OpenDroneMap package.",
+  "publishedAt": "2023-03-13T21:03:41Z",
+  "source": {
+    "id": null,
+    "name": "Jakecoppinger.com"
+  },
+  "title": "Generating aerial imagery with your iPhone's Lidar sensor",
+  "url": "https://jakecoppinger.com/2023/03/generating-aerial-imagery-with-your-iphones-lidar-sensor/",
+  "urlToImage": "https://jakecoppinger.com/wp-content/uploads/2023/03/id-editor-open-aerial-map.jpg"
+}{
+  "author": "Michal J A Paszkiewicz",
+  "content": "Rules, once established, can often gain a life of their own. People seem to feel the need to support or nourish, even if the original purpose of them is forgotten. The postmodern approach to such rul\u2026 [+13581 chars]",
+  "description": "A basic investigation into how road speeds relate to actual road safety",
+  "publishedAt": "2023-03-10T07:30:19Z",
+  "source": {
+    "id": null,
+    "name": "Cricetuscricetus.co.uk"
+  },
+  "title": "Are road speed limits based on safety?",
+  "url": "https://www.cricetuscricetus.co.uk/post/are-road-speed-limits-based-on-safety",
+  "urlToImage": "https://static.wixstatic.com/media/7ac8d7_1f8a950a311c4e63a06e5b9597b3c6cc~mv2.png/v1/fill/w_1000,h_819,al_c,q_90,usm_0.66_1.00_0.01/7ac8d7_1f8a950a311c4e63a06e5b9597b3c6cc~mv2.png"
+}{
+  "author": "Hector Arbuckle (Guest Contributor)",
+  "content": "Five stories of apartments above commerce in Arlington, VA. Image by Google Street View. \r\nArlington is known for desirable schools, lots of places to eat and hang out, four Metro lines, and a ton of\u2026 [+5429 chars]",
+  "description": "Arlington is known for desirable schools, lots of places to eat and hang out, four Metro lines, and a ton of good jobs \u2013 but the county has become wildly unaffordable due to restrictive zoning. If you changed that, a lot more people could live there and enjoy\u2026",
+  "publishedAt": "2023-03-15T16:51:00Z",
+  "source": {
+    "id": null,
+    "name": "Greater Greater Washington"
+  },
+  "title": "Arlington isn\u2019t full",
+  "url": "https://ggwash.org/view/88883/arlington-isnt-full",
+  "urlToImage": "https://ggwash.org/images/posts/_resized/image3_14.png"
+}{
+  "author": "Inga McDermott, Martin Gilbert, Manoj Kumar Shah, Amir Sadaula, Neil E. Anderson",
+  "content": "Introduction\r\nCanine distemper virus (CDV) was initially regarded as a pathogen only affecting the domestic dog but is now recognised as a globally distributed multi-host pathogen that causes high mo\u2026 [+36979 chars]",
+  "description": "Canine distemper virus (CDV) is a global multi-host pathogen that is capable of causing considerable mortality in a range of species and is important in the field of conservation medicine. Nepal\u2019s Chitwan National Park is a protected area providing habitat fo\u2026",
+  "publishedAt": "2023-02-27T14:00:00Z",
+  "source": {
+    "id": null,
+    "name": "Plos.org"
+  },
+  "title": "Seroprevalence of canine distemper virus (CDV) in the free-roaming dog (Canis familiaris) population surrounding Chitwan National Park, Nepal",
+  "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0281542",
+  "urlToImage": "https://journals.plos.org/plosone/article/figure/image?id=10.1371/journal.pone.0281542.g002&size=inline"
+}{
+  "author": "Nikesh Balami",
+  "content": "We at the Open Knowledge Foundation (OKFN) are excited to announce the list of organisations that have been awarded small grants to help them host Open Data Day(s) (ODD) events and activities across \u2026 [+5319 chars]",
+  "description": "In total, we received 71 small grant applications this year from 30 countries and were greatly impressed by the quality of the event proposals.",
+  "publishedAt": "2023-03-01T19:07:29Z",
+  "source": {
+    "id": null,
+    "name": "Okfn.org"
+  },
+  "title": "And the winners of the Open Data Day(s) 2023 small grants programme are. . .",
+  "url": "https://blog.okfn.org/2023/03/01/winners-open-data-days-2023-small-grants-programme/",
+  "urlToImage": null
+}{
+  "author": "Elham Ghasidian, Anooshe Kafash, Martin Kehl, Masoud Yousefi, Saman Heydari-Guran",
+  "content": "Abstract\r\nThe study of the cultural materials associated with the Neanderthal physical remains from the sites in the Caucasus, Central Asia and Siberian Altai and adjacent areas documents two distinc\u2026 [+71881 chars]",
+  "description": "The study of the cultural materials associated with the Neanderthal physical remains from the sites in the Caucasus, Central Asia and Siberian Altai and adjacent areas documents two distinct techno-complexes of Micoquian and Mousterian. These findings potenti\u2026",
+  "publishedAt": "2023-02-23T14:00:00Z",
+  "source": {
+    "id": null,
+    "name": "Plos.org"
+  },
+  "title": "Modelling Neanderthals\u2019 dispersal routes from Caucasus towards east",
+  "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0281978",
+  "urlToImage": "https://journals.plos.org/plosone/article/figure/image?id=10.1371/journal.pone.0281978.g011&size=inline"
+}{
+  "author": "sindark",
+  "content": "When the gyms at the University of Toronto closed, I decided that all my pandemic exercise would be in the form of walking. Exercise was and is indispensable to good productivity and good disposition\u2026 [+1027 chars]",
+  "description": "I needed to exercise to be productive and take care of myself, but curiosity and the availability of technological tools turned that into a project of exploration, map-making, and collaboration with friends. When the gyms at the University of Toronto closed, \u2026",
+  "publishedAt": "2023-02-19T21:42:55Z",
+  "source": {
+    "id": null,
+    "name": "Metafilter.com"
+  },
+  "title": "My portrait of COVID Toronto in maps",
+  "url": "https://projects.metafilter.com/6150/My-portrait-of-COVID-Toronto-in-maps",
+  "urlToImage": null
+}{
+  "author": "juminet",
+  "content": "Note: il y a une version fran\u00e7aise ici\r\nFrom 2019, the cartographic style OpenArdenneMap is updated every 6 months. OpenArdenneMap is a cartographic style for topographic maps based on OSM data. Here\u2026 [+4307 chars]",
+  "description": "Note: il y a une version fran\u00e7aise ici\n\nFrom 2019, the cartographic style OpenArdenneMap is updated every 6 months. OpenArdenneMap is a cartographic style for topographic maps based on OSM data. Here are some notes for the last version.\n\nOpenArdenneMap goes o\u2026",
+  "publishedAt": "2023-03-02T17:58:36Z",
+  "source": {
+    "id": null,
+    "name": "Openstreetmap.org"
+  },
+  "title": "OpenArdenneMap goes on QGIS",
+  "url": "https://www.openstreetmap.org/user/juminet/diary/401084",
+  "urlToImage": "https://www.openstreetmap.org/assets/osm_logo_256-ed028f90468224a272961c380ecee0cfb73b8048b34f4b4b204b7f0d1097875d.png"
+}{
+  "author": "raul.ramos@udea.edu.co",
+  "content": "download Google Earth Engine datasets to tiles as geotiff arrays\r\nUses the Google Earth Engine High Volume Endpoint which, according the doc\r\nThis service is designed to support a much larger number \u2026 [+2517 chars]",
+  "description": "download Google Earth Engine datasets to tiles as geotiff arrays",
+  "publishedAt": "2023-03-17T15:01:08Z",
+  "source": {
+    "id": null,
+    "name": "Pypi.org"
+  },
+  "title": "geetiles added to PyPI",
+  "url": "https://pypi.org/project/geetiles/",
+  "urlToImage": "https://pypi.org/static/images/twitter.abaf4b19.webp"
+}{
+  "author": "Justin Jackson",
+  "content": "The study area and important Middle Paleolithic sites mentioned in the text: 1. Crimean sites, 2. Mezmaiskaya, 3. Trans Ural sites, 4. Siberian Altai sites (Chagyrskaya, Denisova, Okladnikov), 5. Azo\u2026 [+4513 chars]",
+  "description": "Researchers modeling eastern Neanderthal migration from Europe have found the area south of the Caspian Sea in northern Iran to be the most likely route, suggesting there could be significant yet-to-be-discovered archaeological sites hidden in less explored a\u2026",
+  "publishedAt": "2023-03-01T19:32:51Z",
+  "source": {
+    "id": null,
+    "name": "Phys.Org"
+  },
+  "title": "Modeling of European Neanderthal migration hints at hidden archaeological hot spots in Iran",
+  "url": "https://phys.org/news/2023-03-european-neanderthal-migration-hints-hidden.html",
+  "urlToImage": "https://scx2.b-cdn.net/gfx/news/hires/2023/modeling-of-european-n.jpg"
+}{
+  "author": "ReportLinker",
+  "content": "New York, March 15, 2023 (GLOBE NEWSWIRE) -- Reportlinker.com announces the release of the report \"Global GPS (Global Positioning Systems) Industry\" - https://www.reportlinker.com/p06344804/?utm_sour\u2026 [+35172 chars]",
+  "description": "The global economy is at a critical crossroads with a number of interlocking challenges and crises running in parallel. The uncertainty around how Russia`s war on Ukraine will play out this year and the war`s role in creating global instability means that the\u2026",
+  "publishedAt": "2023-03-15T14:16:00Z",
+  "source": {
+    "id": null,
+    "name": "GlobeNewswire"
+  },
+  "title": "Global GPS (Global Positioning Systems) Market to Reach $473.4 Billion by 2030",
+  "url": "https://www.globenewswire.com/news-release/2023/03/15/2627893/0/en/Global-GPS-Global-Positioning-Systems-Market-to-Reach-473-4-Billion-by-2030.html",
+  "urlToImage": "https://ml.globenewswire.com/Resource/Download/3e0b82c2-02d7-44c8-b22f-561e0f321f39"
+}{
+  "author": "Majumder, M. S., Cusick, M., Rose, S.",
+  "content": "Strengths and limitations of this study\r\n<ul><li>Direct comparison of infectious disease reporting across publicly available data sources provides insight into their robustness.\r\n</li><li>Methods all\u2026 [+13572 chars]",
+  "description": "Objectives As highlighted by the COVID-19 pandemic, researchers are eager to make use of a wide variety of data sources, both government-sponsored and alternative, to characterise the epidemiology of infectious diseases. The objective of this study is to inve\u2026",
+  "publishedAt": "2023-02-28T14:39:34Z",
+  "source": {
+    "id": null,
+    "name": "The BMJ"
+  },
+  "title": "Measuring concordance of data sources used for infectious disease research in the USA: a retrospective data analysis",
+  "url": "https://bmjopen.bmj.com/content/13/2/e065751?rss=1",
+  "urlToImage": "https://bmjopen.bmj.com/pages/wp-content/uploads/sites/7/2019/07/bmjopen-default-cover.png"
+}{
+  "author": "weeklyOSM",
+  "content": "07/02/2023-13/02/2023\n\n\n\r\n\nThe Native Land Digital globe showing Native Territories as they were historically [1] | \u00a9 Screenshot of Native Land Digital | map data \u00a9 OpenStreetMap contributors\r\n\n\nMapp\u2026 [+9251 chars]",
+  "description": "07/02/2023-13/02/2023 The Native Land Digital globe showing Native Territories as they were historically [1] | \u00a9 Screenshot of Native Land Digital | map data \u00a9 OpenStreetMap contributors Mapping Re\u2026",
+  "publishedAt": "2023-02-19T11:38:03Z",
+  "source": {
+    "id": null,
+    "name": "Weeklyosm.eu"
+  },
+  "title": "weeklyOSM: weeklyOSM 656",
+  "url": "https://weeklyosm.eu/archives/16311",
+  "urlToImage": "https://weeklyosm.eu/wp-content/uploads/2023/02/656_T_all.png"
+}{
+  "author": "mapsabouttime",
+  "content": "Were on a mission to create the largest public transport database in the world. In this blog well explain how were doing it and the challenges we face along the way. If you want to explore our transp\u2026 [+5943 chars]",
+  "description": "We build an API that can calculate travel times to hundreds of thousands of nearby locations. We don't use any data from Google, which is why we needed to create a public transport database. Let me know if you have any questions.\n\nComments URL: https://news.y\u2026",
+  "publishedAt": "2023-03-17T11:50:36Z",
+  "source": {
+    "id": null,
+    "name": "Traveltime.com"
+  },
+  "title": "Show HN: Hurdles we faced whilst building the largest public transport database",
+  "url": "https://traveltime.com/blog/public-transport-database",
+  "urlToImage": "https://assets-global.website-files.com/60759e0794bb7b3714fb9bdd/6411a615606063635dc1b4eb_hero.webp"
+}
