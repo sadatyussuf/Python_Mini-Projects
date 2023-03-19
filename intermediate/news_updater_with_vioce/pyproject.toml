@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "news-updater-with-vioce"
+version = "0.1.0"
+description = ""
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+packages = [{include = "news_updater_with_vioce"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyttsx3 = "^2.90"
+pyaudio = "^0.2.13"
+newsapi-python = "^0.2.7"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
