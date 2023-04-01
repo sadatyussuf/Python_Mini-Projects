@@ -1,10 +1,13 @@
+import json
+import os
+import uuid
+import wave
+from pathlib import Path
+
+import pyaudio
+import pyttsx3
 from dotenv import load_dotenv
 from newsapi import NewsApiClient
-import os
-import json
-import pyttsx3
-from pathlib import Path
-import uuid
 
 load_dotenv()
 BASE_DIR = Path(__file__).parent
@@ -15,6 +18,7 @@ token = os.environ.get("NEWS_API_TOKEN")
 def write_to_file(filename: str, news: list):
     unique_id = uuid.uuid4()
     file_name = f"{filename}_{unique_id}.txt"
+    # file_name = f"{filename}.txt"
 
     def formatting_text(new):
         title, author = new["title"], ["newauthor"]
@@ -30,6 +34,8 @@ def write_to_file(filename: str, news: list):
     with open(BASE_DIR.joinpath(file_name), "w") as f:
         for new in news:
             f.write(new)
+
+    return file_name
 
 
 def get_news(token: str, query: str):
@@ -48,22 +54,76 @@ def get_news(token: str, query: str):
     json_str = json.dumps(everything)
     py_dict = json.loads(json_str)
 
-    articles = py_dict["articles"]
+    articles = py_dict["articles"][4:6]
 
-    write_to_file(query, articles)
+    return write_to_file(query, articles)
 
 
-def read_news():
+def read_news(get_filez=None):
+    get_file = list(BASE_DIR.glob("*.txt"))[0]
+
     engine = pyttsx3.init()
-    # getting details of current speaking rate
-    rate = engine.getProperty("rate")
-    print(rate)  # printing current voice rate
-    engine.setProperty("rate", 125)  # setting up new voice rate
 
-    engine.say("I will speak this text")
+    with open(get_file, "r") as f:
+        text = f.read()
 
+    engine.setProperty("rate", 150)  # setting up new voice rate
+    engine.setProperty("volume", 0.9)  # setting up new voice volume
+
+    # Say the text out loud
+    engine.say(text)
     engine.runAndWait()
 
 
-# read_news()
-get_news(token, "qgis")
+def record_name():
+    # Initialize the pyaudio recording parameters
+    audio = pyaudio.PyAudio()
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 1
+    RATE = 44100
+    CHUNK = 1024
+    RECORD_SECONDS = 5
+
+    # Start recording
+    stream = audio.open(
+        format=FORMAT, channels=CHANNELS, rate=RATE, input=True, frames_per_buffer=CHUNK
+    )
+    print("Recording started...")
+    frames = []
+    for _ in range(int(RATE / CHUNK * RECORD_SECONDS)):
+        data = stream.read(CHUNK)
+        frames.append(data)
+    print("Recording finished.")
+
+    # Stop the stream and terminate the pyaudio object
+    stream.stop_stream()
+    stream.close()
+    audio.terminate()
+
+    filename = "results.wav"
+
+    # Save the recorded audio to a file
+    with wave.open(BASE_DIR.joinpath(filename), "wb") as wf:
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(audio.get_sample_size(FORMAT))
+        wf.setframerate(RATE)
+        # wf.writeframes(b"".join(frames))
+
+    # wf = wave.open(BASE_DIR.joinpath(filename), "wb")
+    # wf.setnchannels(CHANNELS)
+    # wf.setsampwidth(audio.get_sample_size(FORMAT))
+    # wf.setframerate(RATE)
+    # wf.writeframes(b"".join(frames))
+    # wf.close()
+
+    print(f"Recording saved to {filename}.")
+
+
+def main():
+    de_file = get_news(token, "qgis")
+    read_news(de_file)
+    record_name()
+
+
+if __name__ == "__main__":
+    main()
