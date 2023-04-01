@@ -1,5 +1,16 @@
 {
     "cSpell.words": [
         "sklearn"
+    ],
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+
+    "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+    },   
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--ignore=E501,W503",  // Customize Flake8 rules to ignore
+        "--max-line-length=120" // Customize maximum line length
     ]
 }
