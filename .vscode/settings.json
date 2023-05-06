@@ -2,7 +2,7 @@
     "cSpell.words": [
         "sklearn"
     ],
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "none",
     "editor.formatOnSave": true,
 
     "editor.codeActionsOnSave": {
@@ -12,5 +12,8 @@
     "python.linting.flake8Args": [
         "--ignore=E501,W503",  // Customize Flake8 rules to ignore
         "--max-line-length=120" // Customize maximum line length
-    ]
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    }
 }
