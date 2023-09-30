@@ -8,6 +8,8 @@ packages = [{include = "files_sorter"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+rich = "^13.6.0"
+mypy = "^1.5.1"
 
 
 [build-system]
