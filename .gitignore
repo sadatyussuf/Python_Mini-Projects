@@ -137,3 +137,6 @@ venv.bak/
 .vscode
 *.code-workspace
 .history
+# settings.json
+launch.json
+intermediate-projects/files_sorter/main.py
