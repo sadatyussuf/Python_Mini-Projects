@@ -4,6 +4,7 @@ import time
 # import extensions
 from extensions import extensions
 from rich import print
+from secrets import token_hex
 
 # downloads_path = path.Path.home() / "Downloads"
 
@@ -11,6 +12,37 @@ from rich import print
 # and filter out any that are not files, creating a list of all files in the directory.
 # files = [i for i in downloads_path.iterdir() if i.is_file()]
 # other_folders = [i for i in downloads_path.iterdir() if i.is_dir()]
+
+
+def rename_file(file_name:str) -> str:
+    rand_str = token_hex(2)
+
+    split_name = file_name.split('.')
+    split_name[0] = f'{split_name[0]}_{rand_str}'
+    print(split_name)
+    return '.'.join(split_name)
+
+
+def resolve_file_name_collision(dest_folder:path.Path,file_or_folder: path.Path) -> path.Path:
+    potential_path = dest_folder / file_or_folder.name
+    unique_name = file_or_folder
+    while potential_path.exists():
+
+
+        # print(potential_path,potential_path.exists(),rand_str)
+        unique_name =file_or_folder.rename(dest_folder.parent / rename_file(file_or_folder.name) )
+        # print(unique_name,'unique name')
+
+        potential_path = dest_folder / unique_name.name
+        # print(potential_path,'potential path name')
+
+        # print('-------------------------------------------')
+
+
+    # other_folders = [i for i in  dest_folder.parent.iterdir() if i.is_dir()]
+    # print(other_folders)
+
+    return unique_name
 
 
 def get_command_line_args():
@@ -61,12 +93,13 @@ def sort_files(files: list, extensions: dict, target_folder: path.Path) -> None:
                 # create a Path object for the destination folder
                 destination_folder = target_folder / key
 
-                # use the rename() method to move the file
-                file.rename(destination_folder / file.name)
-                # file = destination_folder / file.name
+                # resolve_file_name_collision(destination_folder,file.name)
+                resolved_path = resolve_file_name_collision(destination_folder,file)
+
+                resolved_path.rename(destination_folder / resolved_path.name)
 
 
-def sort_folders(other_folders: list, extensions: dict, target_folder: path.Path) -> None:
+def sort_folders(folders: list, extensions: dict, target_folder: path.Path) -> None:
     """
     The function takes a list of folders and a dictionary of extensions, and moves folders with names not in
     the extensions dictionary to a destination folder.
@@ -78,13 +111,19 @@ def sort_folders(other_folders: list, extensions: dict, target_folder: path.Path
     "Text_Files"}`. This means that any file with the extension "
     :type extensions: dict
     """
-    for folder in other_folders:
+    for folder in folders:
         folder_name = folder.name
         if folder_name not in extensions:
             # if folder_name == 'test':
             # print(folder_name)
             destination_folder = target_folder / "Other_Folders"
-            folder.rename(destination_folder / folder_name)
+
+            resolved_path = resolve_file_name_collision(destination_folder,folder)
+
+            # print("OG folder path ", folder, folder.exists())
+            # print("New folder path ",resolved_path,resolved_path.exists())
+
+            resolved_path.rename(destination_folder / resolved_path.name)
 
 
 def main(target_folder_path):
