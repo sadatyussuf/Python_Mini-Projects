@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "bounce-ball"
+version = "0.1.0"
+description = ""
+authors = ["sadatyussuf <tommyleespartan0@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pygame = "^2.5.2"
+rich = "^13.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
